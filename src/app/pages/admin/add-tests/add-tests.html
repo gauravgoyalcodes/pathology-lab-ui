@@ -1,0 +1,140 @@
+<div class="registration-wrapper">
+    <div class="test-card">
+
+        <!-- Sidebar -->
+        <div class="sidebar-accent">
+            <div class="glass-box">
+                <div class="icon-circle">
+                    <i class="bi bi-flask2-fill"></i>
+                </div>
+                <h3>Test <br><span>Management</span></h3>
+                <p>Add and manage diagnostic tests with standardized configurations.</p>
+
+                <div class="feature-list">
+                    <div class="feature-item"><i class="bi bi-check2-circle"></i> Standardized TAT</div>
+                    <div class="feature-item"><i class="bi bi-currency-rupee"></i> Transparent Pricing</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form -->
+        <div class="form-content">
+
+            <div class="alert-container" *ngIf="success || error">
+                <div *ngIf="success" class="alert-custom alert-success">
+                    <i class="bi bi-check-circle-fill"></i> <strong>{{ success }}</strong>
+                </div>
+
+                <div *ngIf="error" class="alert-custom alert-danger">
+                    <i class="bi bi-exclamation-triangle-fill"></i> <strong>{{ error }}</strong>
+                </div>
+            </div>
+            <br>
+
+            <div class="form-header">
+                <span class="badge-status">Laboratory Configuration</span>
+                <h2>Add Diagnostic Test</h2>
+            </div>
+
+            <form [formGroup]="testForm" (ngSubmit)="submitTest()">
+
+                <!-- Test Name -->
+                <div class="form-floating custom-floating mb-3">
+                    <input type="text" class="form-control" placeholder="Test Name" formControlName="testName">
+                    <label>Test Name</label>
+                </div>
+
+                <!-- Category + Sample Type -->
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="form-floating custom-floating">
+                            <select class="form-select" formControlName="category">
+                                <option value="" disabled selected>Select</option>
+                                <option>Biochemistry</option>
+                                <option>Hematology</option>
+                                <option>Clinical Pathology</option>
+                                <option>Microbiology</option>
+                                <option>Serology</option>
+                                <option>Immunology</option>
+                                <option>Histopathology</option>
+                                <option>Cytopathology</option>
+                                <option>Molecular Pathology</option>
+                                <option>Genetics</option>
+                                <option>Flow Cytometry</option>
+                                <option>Coagulation Studies</option>
+                                <option>Toxicology</option>
+                                <option>Therapeutic Drug Monitoring</option>
+                                <option>Preventive Health</option>
+                                <option>Occupational Health</option>
+                            </select>
+                            <label>Test Category</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-floating custom-floating">
+                            <select class="form-select" formControlName="sampleType">
+                                <option value="" disabled selected>Select</option>
+                                <option>Serum</option>
+                                <option>Plasma</option>
+                                <option>Whole Blood</option>
+                                <option>Urine</option>
+                                <option>Stool</option>
+                                <option>CSF</option>
+                                <option>Pleural Fluid</option>
+                                <option>Ascitic Fluid</option>
+                                <option>Synovial Fluid</option>
+                                <option>Tissue</option>
+                                <option>Biopsy</option>
+                                <option>FNAC</option>
+                                <option>Bone Marrow</option>
+                                <option>Sputum</option>
+                                <option>Swab</option>
+                                <option>Pus</option>
+                                <option>Semen</option>
+                            </select>
+                            <label>Sample Type</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAT + Price -->
+                <div class="row g-3 mt-2">
+                    <div class="col-md-6">
+                        <div class="form-floating custom-floating">
+                            <select class="form-select" formControlName="normalTat">
+                                <option value="" disabled selected>Select</option>
+                                <option>1 hour</option>
+                                <option>3 hours</option>
+                                <option>6 hours</option>
+                                <option>12 hours</option>
+                                <option>1 Day</option>
+                                <option>2 Days</option>
+                                <option>3 Days</option>
+                                <option>4 Days</option>
+                                <option>5 Days</option>
+                            </select>
+                            <label>Normal TAT</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-floating custom-floating">
+                            <input type="number" class="form-control" placeholder="Price" formControlName="price">
+                            <label>Price (₹)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <div class="d-grid mt-4">
+                    <button class="submit-btn" type="submit" [disabled]="testForm.invalid || loading">
+                        <span *ngIf="!loading">+ Add Test</span>
+                        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,121 @@
+/* Overall wrapper */
+.admin-header {
+  background: #020617;
+  color: #ffffff;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.35);
+}
+
+.admin-topbar {
+  height: 64px;
+  position: relative;               /* 🔑 REQUIRED */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;         /* Push admin-user to right */
+  padding: 0 28px;
+  border-bottom: 1px solid #1e293b;
+}
+
+/* Perfect center */
+.brand-name {
+  position: absolute;  
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 25px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Right-aligned admin */
+.admin-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.username {
+  font-size: 16px;
+  color: #e5e7eb;
+}
+
+.role-badge {
+  background: #2563eb;
+  font-size: 15px;
+  padding: 4px 10px;
+  border-radius: 15px;
+}
+
+/* Navigation bar */
+.admin-navbar {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 28px;
+  background: #0f172a;
+}
+
+/* Links */
+.nav-link {
+  font-size: 16px;
+  color: #cbd5f5;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+}
+
+/* Dropdown */
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #020617;
+  border-radius: 10px;
+  min-width: 220px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.45);
+  display: none;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.dropdown-menu a {
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #e5e7eb;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  background: #1e293b;
+}
+
+/* Right aligned dropdown */
+.dropdown-menu.right {
+  right: 0;
+  left: auto;
+}
+
+/* Hover effect */
+.nav-dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+/* Logout */
+.logout {
+  color: #fca5a5;
+}
+
+.logout:hover {
+  background: #7f1d1d;
+}
+
+/* Utility */
+.ms-auto {
+  margin-left: auto;
+}

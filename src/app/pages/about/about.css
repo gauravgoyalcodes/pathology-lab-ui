@@ -1,0 +1,138 @@
+/* HERO SECTION */
+.about-hero {  
+  background: linear-gradient(
+      rgba(53, 108, 180, 0.85),
+      rgba(0, 73, 132, 0.85)
+    ),         
+    url('/assets/img/aboutus.jpg') center / cover no-repeat;
+
+  padding: 50px 0;
+}
+/* HERO TITLE */
+.about-hero-title {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+/* HERO SUBTITLE */
+.about-hero-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600;
+  line-height: 1.6;
+}
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 35px 0;
+  }
+
+  .about-hero-title {
+    font-size: 1.7rem;
+  }}
+
+
+/* GLOBAL ABOUT PAGE */
+.about-content {
+  font-family: 'Inter', sans-serif;
+  color: #2b2b2b;
+}
+
+/* Eyebrow / Small Heading */
+.about-eyebrow {
+  font-family: 'IBM Plex Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #0d6efd;
+  margin-bottom: 12px;
+}
+
+/* Main Section Title */
+.about-section-title {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #111;
+  margin-bottom: 18px;
+}
+
+/* Intro Paragraph */
+.about-intro {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #5f6b7a;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* Body Paragraphs */
+.about-content p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #4a4a4a;
+}
+
+/* Cards */
+.about-card {
+  background: #ffffff;
+  border: 1px solid #e1e5ea;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.about-card h5 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.about-card p {
+  font-size: 0.9rem;
+  color: #5f6b7a;
+  margin-bottom: 0;
+}
+
+/* Contact Section */
+.contact-title {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.contact-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-family: 'Inter', sans-serif;
+}
+
+.contact-label {
+  min-width: 70px;
+  font-weight: 500;
+  color: #555;
+}
+
+.contact-value {
+  color: #2b2b2b;
+}
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .about-section-title {
+    font-size: 1.6rem;
+  }
+}

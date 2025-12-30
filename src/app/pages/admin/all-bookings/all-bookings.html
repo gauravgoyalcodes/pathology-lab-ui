@@ -1,0 +1,127 @@
+<div class="registry-page">
+  <div class="main-container">
+
+    <!-- Top Navigation -->
+    <header class="top-nav">
+      <div class="nav-brand">
+        <div class="brand-box">
+          <i class="bi bi-activity"></i>
+        </div>
+        <div>
+          <h1>Booking Management</h1>
+          <p>Diagnostic Queue • <span class="live-indicator">Real-time Updates</span></p>
+        </div>
+      </div>
+
+      <button class="refresh-btn" (click)="fetchBookings()" [disabled]="loading">
+        <i class="bi bi-arrow-repeat" [class.spin]="loading"></i>
+        <span>{{ loading ? 'Updating…' : 'Refresh List' }}</span>
+      </button>
+    </header>
+
+    <!-- Booking List -->
+    <div class="scroll-area" *ngIf="groupedBookings">
+
+      <div class="day-group" *ngFor="let dateEntry of groupedBookings | keyvalue">
+
+        <div class="day-sticky-label">
+          <i class="bi bi-calendar-event"></i>
+          {{ $any(dateEntry.key) | date:'EEEE, d MMMM y' }}
+        </div>
+
+        <div class="slot-section" *ngFor="let slotEntry of dateEntry.value | keyvalue">
+
+          <div class="slot-header">
+            <span class="time-pill">
+              <i class="bi bi-clock"></i> {{ slotEntry.key }}
+            </span>
+            <span class="count-pill">
+              {{ slotEntry.value.length }} Bookings
+            </span>
+          </div>
+
+          <div class="entry-list">
+            <div class="booking-card" *ngFor="let booking of slotEntry.value">
+
+              <!-- Identity -->
+              <div class="cell identity">
+                <div class="avatar-box">
+                  {{ booking.patientName.charAt(0) }}
+                </div>
+                <div class="info">
+                  <span class="id-tag">#{{ booking.bookingId }}</span>
+                  <span class="patient-name">
+                    {{ booking.salutation }} {{ booking.patientName }}
+                  </span>
+                  <span class="patient-sub">
+                    {{ booking.age }}Y • {{ booking.gender }}
+                  </span>
+                  <span class="phone-link">
+                    <i class="bi bi-telephone"></i> {{ booking.phone }}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Clinical -->
+              <div class="cell clinical">
+                <div class="ref-doc">
+                  <i class="bi bi-person-badge"></i>
+                  {{ booking.doctorName }}
+                </div>
+
+                <div class="test-cloud">
+                  <span class="test-chip" *ngFor="let test of booking.tests">
+                    {{ test }}
+                  </span>
+                </div>
+
+                <div class="tat-line" *ngIf="booking.maxTat">
+                  <i class="bi bi-lightning-charge-fill"></i>
+                  TAT : {{ booking.maxTat }}
+                </div>
+              </div>
+
+              <!-- Billing -->
+              <div class="cell billing">
+                <div class="price-container">
+                  <span class="currency">₹</span>
+                  <span class="amount">{{ booking.totalPrice }}</span>
+                </div>
+
+                <div class="status-badge" [ngClass]="booking.status">
+                  <span class="dot"></span>
+                  {{ booking.status }}
+                </div>
+              </div>
+
+              <!-- Actions -->
+              <div class="cell actions">
+                <div class="action-wrap" *ngIf="booking.status === 'PENDING'">
+                  <button class="btn-confirm"
+                          (click)="updateStatus(booking.bookingId, 'ACCEPTED')">
+                    <i class="bi bi-check-lg"></i>
+                  </button>
+                  <button class="btn-cancel"
+                          (click)="updateStatus(booking.bookingId, 'REJECTED')">
+                    <i class="bi bi-x-lg"></i>
+                  </button>
+                </div>
+
+                <div class="phlebo-assigned" *ngIf="booking.status === 'ACCEPTED'">
+                  <div class="phlebo-label">Assigned Phlebo</div>
+                  <div class="phlebo-name">
+                    <i class="bi bi-person-check-fill"></i>
+                    {{ booking.phleboName }}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

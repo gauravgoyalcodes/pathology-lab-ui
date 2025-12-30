@@ -1,0 +1,157 @@
+.search-box {
+  width: 350px;
+}
+
+.search-box .input-group-text {
+  background: white;
+  border-right: none;
+  color: #0ea5e9;
+  border-radius: 12px 0 0 12px;
+  border: 1.5px solid #e2e8f0;
+}
+
+.search-box .form-control {
+  border-left: none;
+  border-radius: 0 12px 12px 0;
+  border: 1.5px solid #e2e8f0;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.search-box .form-control:focus {
+  box-shadow: none;
+  border-color: #e2e8f0;
+}
+
+.management-wrapper {
+  min-height: 100vh;
+  padding: 40px;
+  background-color: #f8fafc;
+  background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+  background-size: 30px 30px;
+}
+
+.content-card {
+  max-width: 1500px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+/* 2. Header & Icons */
+.management-header {
+  padding: 40px;
+  background: #ffffff;
+  border-bottom: 3px solid #f1f5f9;
+}
+
+.icon-badge {
+  width: 65px; height: 65px;
+  background: #0f172a; /* Deep Midnight Blue */
+  color: #38bdf8;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.sub-text { font-size: 15px; color: #64748b; margin-top: 5px; }
+
+/* 3. FIX FOR OVERLAPPING FLOATING LABELS (From your image) */
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > .form-select ~ label {
+  transform: scale(0.85) translateY(-1.1rem) translateX(0.15rem) !important;
+  background-color: white; 
+  padding: 0 8px;
+  height: auto;
+  opacity: 1;
+  color: #0284c7;
+  font-weight: 700;
+}
+
+.form-floating > label {
+    padding: 1rem 0.75rem;
+    font-weight: 500;
+}
+
+/* 4. Table Header Styling - High Contrast */
+.clinical-table { width: 100%; border-collapse: collapse; }
+
+.clinical-table th {
+  padding: 22px 15px;
+  background: #ffffff; 
+  font-size: 15px;
+  color: #0f172a; /* Midnight Blue */
+  text-transform: uppercase;
+  font-weight: 900; /* Maximum Boldness */
+  letter-spacing: 1.2px;
+  border-bottom: 4px solid #0f172a; /* Anchor line */
+  text-align: left;
+}
+
+.clinical-table td {
+  padding: 20px 15px;
+  font-size: 16px;
+  color: #1e293b;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.clinical-table tbody tr:hover td {
+  background-color: #f0f9ff; /* Row hover focus */
+}
+
+/* 5. Cell Specific Boldness */
+.id-cell { font-weight: 800; color: #0284c7; font-family: 'Courier New', monospace; }
+.full-name { font-weight: 800; color: #0f172a; font-size: 18px; }
+.prefix { color: #64748b; font-weight: 500; margin-right: 5px; }
+.spec-text { font-weight: 700; color: #475569; }
+
+/* 6. Professional Alert Box */
+.alert-container { padding: 20px 40px 0; }
+
+.alert-custom {
+  padding: 15px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  border-left: 6px solid;
+}
+
+.alert-success { background: #f0fdf4; color: #166534; border-color: #22c55e; }
+.alert-info { background: #f0f9ff; color: #0369a1; border-color: #0ea5e9; }
+.alert-danger { background: #fef2f2; color: #991b1b; border-color: #ef4444; }
+
+/* 7. Action Buttons */
+.action-buttons { display: flex; gap: 10px; justify-content: center; }
+
+.btn-edit, .btn-delete {
+  width: 42px; height: 42px;
+  border-radius: 10px; border: none;
+  font-size: 18px; transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-edit { background: #eff6ff; color: #2563eb; }
+.btn-edit:hover { background: #2563eb; color: white; transform: translateY(-2px); }
+
+.btn-delete { background: #fff1f2; color: #e11d48; }
+.btn-delete:hover { background: #e11d48; color: white; transform: translateY(-2px); }
+
+.status-pill.active {
+  background: #dcfce7; color: #15803d;
+  padding: 5px 12px; border-radius: 6px;
+  font-weight: 800; font-size: 13px;
+}

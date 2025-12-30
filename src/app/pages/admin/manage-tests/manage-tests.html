@@ -1,0 +1,77 @@
+<div class="test-manager dotted-bg">
+    <header class="main-header glass">
+        <div class="title-group">
+            <h1>Tests Database</h1>
+            <p>Laboratory test master and pricing</p>
+        </div>
+    </header>
+
+    <div class="content-split">
+        <aside class="sidebar glass">
+            <div class="sidebar-label">TEST CATEGORIES</div>
+            <div class="category-list">
+                <button *ngFor="let cat of categories" [class.active]="cat === selectedCategory"
+                    (click)="selectCategory(cat)" class="cat-item">
+                    <span class="cat-name">{{ cat }}</span>
+                    <span class="cat-count">{{ getTestCountByCategory(cat) }}</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="data-view">
+            <div class="table-card glass">
+                <div class="table-header-row">
+                    <h3>{{ selectedCategory }} <span class="inventory-tag">Inventory</span></h3>
+                    <div class="search-box">
+                        <i class="bi bi-search search-icon"></i>
+                        <input type="text" placeholder="Search test by name…" [(ngModel)]="searchText" />
+                        <button *ngIf="searchText" class="clear-btn" (click)="searchText = ''">
+                            ✕
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>TEST CODE</th>
+                                <th>TEST NAME</th>
+                                <th>SAMPLE</th>
+                                <th>TAT</th>
+                                <th>PRICE</th>
+                                <th class="text-right">ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr *ngIf="filteredTests.length === 0">
+                                <td colspan="6" class="empty">
+                                    No tests found matching "<strong>{{ searchText }}</strong>"
+                                </td>
+                            </tr>
+
+                            <tr *ngFor="let test of filteredTests">
+                                <td class="code-cell">{{ test.testCode }}</td>
+                                <td>
+                                    <div class="test-identity">
+                                        <span class="t-name">{{ test.testName }}</span>
+                                    </div>
+                                </td>
+                                <td><span class="sample-badge">{{ test.sampleType }}</span></td>
+                                <td class="tat-cell">
+                                    <i class="bi bi-clock-history"></i> {{ test.normalTat }}
+                                </td>
+                                <td class="price-cell">₹{{ test.price | number:'1.0-0' }}</td>
+                                <td class="action-cell">
+                                    <button class="icon-btn edit-btn"><i class="bi bi-pencil-square"></i></button>
+                                    <button class="icon-btn del-btn"><i class="bi bi-trash3-fill"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

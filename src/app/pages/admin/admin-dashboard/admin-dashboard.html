@@ -1,0 +1,71 @@
+<div class="dashboard-container">
+  <section class="overview-section">
+    <div class="section-header">
+      <h2>Operational Overview</h2>
+      <span class="system-status"><span class="pulse"></span> Server Live</span>
+    </div>
+    
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-icon bookings">📅</div>
+        <div class="stat-info">
+          <span class="label">Total Bookings</span>
+          <span class="value">{{ stats.numberOfTotalBookings}}</span>
+        </div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon tests">🧪</div>
+        <div class="stat-info">
+          <span class="label">Pending Tests</span>
+          <span class="value warning">{{ stats.numberOfPendingReports}}</span>
+        </div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon staff">👥</div>
+        <div class="stat-info">
+          <span class="label">Total Number Of Phlebos</span>
+          <span class="value">{{ stats.numberOfTotalPhlebos }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="management-section">
+    <h2 class="section-title">Management Console</h2>
+    <div class="module-grid">
+      
+      <div class="module-card card-blue">
+        <div class="card-content">
+          <span class="emoji">👨‍⚕️</span>
+          <h3>Doctors</h3>
+          <p>Manage specialist profiles, department assignments, and availability.</p>
+        </div>
+      </div>
+
+      <div class="module-card card-green">
+        <div class="card-content">
+          <span class="emoji">🔬</span>
+          <h3>Test Directory</h3>
+          <p>Update test pricing, preparation guidelines, and lab parameters.</p>
+        </div>
+      </div>
+
+      <div class="module-card card-yellow">
+        <div class="card-content">
+          <span class="emoji">🩸</span>
+          <h3>Phlebotomists</h3>
+          <p>Track home collection agents and assign pending samples.</p>
+        </div>
+      </div>
+
+      <div class="module-card card-purple">
+        <div class="card-content">
+          <span class="emoji">📅</span>
+          <h3>Bookings</h3>
+          <p>Track and manage bookings</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>

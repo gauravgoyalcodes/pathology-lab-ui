@@ -1,0 +1,92 @@
+/* HERO */
+.contact-hero {  
+  background: linear-gradient(
+      rgba(53, 108, 180, 0.85),
+      rgba(0, 73, 132, 0.85)
+    ),         
+    url('/assets/img/aboutus.jpg') center / cover no-repeat;
+
+  padding: 50px 0;
+}
+
+.contact-hero-title {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.contact-hero-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600;
+  line-height: 1.6;
+}
+
+/* CONTENT */
+.contact-content {
+  font-family: 'Inter', sans-serif;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* CONTACT INFO */
+.contact-block {
+  margin-bottom: 14px;
+}
+
+.contact-label {
+  display: block;
+  font-weight: 500;
+  color: #555;
+}
+
+.contact-value {
+  color: #2b2b2b;
+}
+
+.contact-note {
+  font-size: 0.9rem;
+  color: #5f6b7a;
+}
+
+/* FORM */
+.form-control {
+  font-size: 0.95rem;
+  padding: 10px 12px;
+}
+
+button.btn {
+  font-size: 0.95rem;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .contact-hero {
+    padding: 35px 0;
+  }
+
+  .contact-hero-title {
+    font-size: 1.7rem;
+  }
+}
+
+.contact-map {
+  width: 100%;
+  height: 420px;          /* increased height */
+  border: none;
+  border-radius: 10px;   /* optional, looks premium */
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .contact-map {
+    height: 300px;
+  }
+}

@@ -1,0 +1,53 @@
+<div class="admin-page">
+  <div class="login-card">
+
+    <div class="sidebar">
+      <div class="brand-info">
+        <div class="logo-placeholder">🛡️</div>
+        <h2 style="color: bisque;">LAB ADMIN</h2>
+        <p>Pathology Management System</p>
+      </div>
+      <div class="security-status">System Encrypted: AES-256</div>
+    </div>
+
+    <div class="form-container">
+      <div *ngIf="error" class="alert alert-danger">
+        {{ error }}
+      </div>
+      <div class="form-header">
+        <span class="auth-label">Authorized Access Only</span>
+        <h1>Administrator Login</h1>
+      </div>
+
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="form-group">
+          <label>Admin UserName</label>
+          <input formControlName="username" placeholder="Admin Username">
+        </div>
+
+        <div class="form-group">
+          <label>Security Password</label>
+          <input type="password" formControlName="password" placeholder="••••••••">
+        </div>
+
+        <div class="captcha-sim">
+          <input type="checkbox" formControlName="authorized" id="auth-check">
+          <label for="auth-check">I confirm I am an authorized staff member</label>
+        </div>
+
+        <button type="submit" class="submit-button" [disabled]="loginForm.invalid || loading">
+
+          <span *ngIf="!loading">Proceed to Dashboard</span>
+          <span *ngIf="loading">
+            <span class="spinner"></span> Logging in...
+          </span>
+        </button>
+      </form>
+
+      <div class="footer-note">
+        This login is for administrative purposes only, handled by the lab authorized team.
+      </div>
+    </div>
+
+  </div>
+</div>

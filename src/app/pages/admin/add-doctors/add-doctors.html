@@ -1,0 +1,105 @@
+<div class="registration-wrapper">
+  <div class="doctor-card">
+
+    <div class="sidebar-accent">
+      <div class="glass-box">
+        <div class="icon-circle">
+          <i class="bi bi-person-plus-fill"></i>
+        </div>
+        <h3>Doctor <br><span>Onboarding</span></h3>
+        <p>Register certified specialists into the diagnostic laboratory network.</p>
+
+        <div class="feature-list">
+          <div class="feature-item"><i class="bi bi-patch-check"></i> Credential Verified</div>
+          <div class="feature-item"><i class="bi bi-shield-lock"></i> Secure Authorization</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-content">
+
+      <div class="alert-container" *ngIf="success || error">
+        <div *ngIf="success" class="alert-custom alert-success">
+          <i class="bi bi-check-circle-fill"></i> <strong>{{ success }}</strong>
+        </div>
+
+        <div *ngIf="error" class="alert-custom alert-danger">
+          <i class="bi bi-exclamation-triangle-fill"></i> <strong>{{ error }}</strong>
+        </div>
+      </div>
+      <br>
+
+      <div class="form-header">
+        <span class="badge-status">Doctors Management</span>
+        <h2>Professional Profile</h2>
+      </div>
+
+      <form [formGroup]="doctorForm" (ngSubmit)="submitDoctor()">
+
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="form-floating custom-floating">
+              <select class="form-select" id="salutation" formControlName="salutation">
+                <option value="" selected disabled>Select</option>
+                <option value="Dr.">Dr.</option>
+                <option value="Prof.">Mr.</option>
+                <option value="Prof.">Mrs.</option>
+                <option value="Prof.">Smt.</option>
+                <option value="Prof.">Prof.</option>
+              </select>
+              <label for="salutation">Prefix</label>
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <div class="form-floating custom-floating">
+              <input type="text" class="form-control" id="doctorName" placeholder="Full Name"
+                formControlName="doctorName">
+              <label for="doctorName">Full Name of Physician</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-floating custom-floating mt-3">
+          <select class="form-select" id="specialization" formControlName="specialization">
+            <option value="" selected disabled>Select Department</option>
+
+            <optgroup label="Core Clinical Specialties">
+              <option value="Internal Medicine">Internal Medicine</option>
+              <option value="Gastroenterology">Gastroenterology</option>
+              <option value="Physiotherapy">Physiotherapy</option>
+              <option value="Cardiology">Cardiology</option>
+              <option value="Neurology">Neurology</option>
+              <option value="Pediatrics">Pediatrics</option>
+              <option value="Radiology">Radiology</option>
+            </optgroup>
+
+            <optgroup label="Surgical & Specialized">
+              <option value="Orthopedics">Orthopedics</option>
+              <option value="Oncology">Oncology</option>
+              <option value="Urology">Urology</option>
+              <option value="Dermatology">Dermatology</option>
+              <option value="Ophthalmology">Ophthalmology</option>
+              <option value="ENT Specialist">ENT Specialist</option>
+            </optgroup>
+
+            <optgroup label="Laboratory & Research">
+              <option value="Hematopathology">Hematopathology</option>
+              <option value="Clinical Biochemistry">Clinical Biochemistry</option>
+              <option value="Microbiology">Microbiology</option>
+              <option value="Histopathology">Histopathology</option>
+            </optgroup>
+          </select>
+          <label for="specialization">Department / Specialization</label>
+        </div>
+
+        <div class="d-grid mt-4">
+          <button type="submit" class="submit-btn" [disabled]="doctorForm.invalid || loading">
+            <span *ngIf="!loading">+ Onboard Doctor</span>
+            <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

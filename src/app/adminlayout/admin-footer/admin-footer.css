@@ -1,0 +1,30 @@
+.admin-footer {
+  height: 60px;
+  background: #020617;              /* SAME AS HEADER BASE */
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  font-size: 20px;
+  border-top: 1px solid #1e293b;    /* SAME DIVIDER STYLE */
+}
+
+/* Sections */
+.footer-left {
+  font-weight: 500;
+  color: #cbd5f5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-center {
+  color: white;
+  font-size: 20px;
+}
+
+.footer-right {
+  color: white;
+  font-size: small;
+}

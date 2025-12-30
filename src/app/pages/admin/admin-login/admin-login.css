@@ -1,0 +1,101 @@
+.admin-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e9ecef;
+}
+
+.login-card {
+  display: flex;
+  width: 900px; /* Widish layout */
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 35%;
+  background: #1160c8;
+  color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo-placeholder { font-size: 40px; margin-bottom: 10px; }
+.password-rules { margin-top: 30px; }
+.rules-header { font-size: 12px; text-transform: uppercase; color: #94a3b8; margin-bottom: 15px; }
+
+.sidebar ul { list-style: none; padding: 0; }
+.sidebar li { font-size: 13px; color: #64748b; margin-bottom: 10px; transition: 0.3s; }
+.sidebar li.valid { color: #10b981; font-weight: bold; } /* Green for valid */
+
+/* FORM AREA */
+.form-container { width: 65%; padding: 60px; }
+.auth-label { color: #ef4444; font-size: 11px; font-weight: bold; text-transform: uppercase; }
+.form-header h1 { margin-top: 5px; color: #0f172a; font-size: 28px; }
+
+.form-group { margin-top: 25px; }
+.form-group label { display: block; font-size: 13px; color: #475569; margin-bottom: 8px; }
+.form-group input {
+  width: 100%; padding: 14px; background: #f8fafc;
+  border: 1px solid #e2e8f0; border-radius: 10px; outline: none;
+}
+
+.captcha-sim {
+  margin-top: 25px; display: flex; align-items: center; gap: 10px;
+  background: #f1f5f9; padding: 15px; border-radius: 10px;
+}
+
+.submit-button {
+  width: 100%; margin-top: 30px; padding: 16px;
+  background: #2563eb; color: white; border: none;
+  border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer;
+}
+
+.submit-button:disabled { background: #cbd5e1; cursor: not-allowed; }
+.footer-note { font-size: 11px; color: #94a3b8; text-align: center; margin-top: 30px; }
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 0.8s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.error-container {
+  width: 100%;
+  max-width: 900px; /* Match this to your login-card width */
+  margin: 0 auto 20px auto; /* Centers it and adds space below */
+}
+
+.alert-danger {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 1px solid #f87171;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

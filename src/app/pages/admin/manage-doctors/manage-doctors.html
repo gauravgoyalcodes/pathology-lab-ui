@@ -1,0 +1,72 @@
+<div class="management-wrapper">
+  <div class="content-card">
+
+    <div class="management-header">
+      <div class="header-main">
+        <div class="icon-badge">
+          <i class="bi bi-person-workspace"></i>
+        </div>
+        <div>
+          <h2 class="page-title">Doctor's Directory</h2>
+          <p class="sub-text">Managing authorized medical professionals and diagnostic specialists in our network.</p>
+        </div>
+      </div>
+
+      <div class="search-box">
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-search"></i></span>
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Search by name or specialization..." 
+            [(ngModel)]="searchTerm"
+            (input)="onSearch()">
+        </div>
+      </div>
+    </div>
+
+    <div class="alert-container" *ngIf="success || error || doctors.length === 0">
+      <div *ngIf="success" class="alert-custom alert-success">
+        <i class="bi bi-check-circle-fill"></i> <strong>{{ success }}</strong>
+      </div>
+
+      <div *ngIf="error" class="alert-custom alert-danger">
+        <i class="bi bi-exclamation-triangle-fill"></i> <strong>{{ error }}</strong>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <table class="clinical-table">
+        <thead>
+          <tr>
+            <th>Doctor ID</th>
+            <th>Practitioner Name</th>
+            <th>Specialization</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let doctor of filteredDoctors">
+            <td class="id-cell">#{{ doctor.doctorId }}</td>
+            <td class="name-cell">
+              <span class="prefix">{{ doctor.salutation }}</span>
+              <span class="full-name">{{ doctor.doctorName }}</span>
+            </td>
+            <td class="spec-text">{{ doctor.specialization }}</td>
+            <td class="text-center">
+              <span class="status-pill active">Verified</span>
+            </td>
+            <td class="action-cell">
+              <div class="action-buttons">
+                <button class="btn-edit" title="Edit Profile"><i class="bi bi-pencil-fill"></i></button>
+                <button class="btn-delete" title="Delete Entry"><i class="bi bi-trash3-fill"></i></button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
