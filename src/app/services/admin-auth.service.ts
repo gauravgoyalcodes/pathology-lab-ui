@@ -1,15 +1,16 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { environment } from "../../environments/environment";
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-  private BASE_URL = 'http://localhost:8080/pathology-lab/admin/login';
+  private BASE_URL = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
 
   login(payload: { username: string; password: string }) {
-    return this.http.post<any>(`${this.BASE_URL}`, payload);
+    return this.http.post<any>(`${this.BASE_URL}/admin/login`, payload);
   }
 
   saveAuthData(res: any) {

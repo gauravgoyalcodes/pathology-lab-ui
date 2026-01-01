@@ -8,7 +8,8 @@
 
 .login-card {
   display: flex;
-  width: 900px; /* Widish layout */
+  width: 100%;
+  max-width: 900px;     /* desktop stays same */
   background: white;
   border-radius: 20px;
   box-shadow: 0 15px 35px rgba(0,0,0,0.1);
@@ -98,4 +99,40 @@
   text-align: center;
   font-weight: 500;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+
+  .admin-page {
+    padding: 16px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .login-card {
+    flex-direction: column;
+    border-radius: 16px;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .form-container {
+    width: 100%;
+    padding: 24px;
+  }
+
+}
+
+.sidebar,
+.form-container {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.admin-page * {
+  box-sizing: border-box;
 }

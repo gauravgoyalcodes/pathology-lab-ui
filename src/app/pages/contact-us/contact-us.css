@@ -1,5 +1,6 @@
 /* HERO */
 .contact-hero {  
+  overflow-x: hidden;
   background: linear-gradient(
       rgba(53, 108, 180, 0.85),
       rgba(0, 73, 132, 0.85)
@@ -7,6 +8,11 @@
     url('/assets/img/aboutus.jpg') center / cover no-repeat;
 
   padding: 50px 0;
+}
+
+.about-hero .row {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .contact-hero-title {
@@ -79,14 +85,29 @@ button.btn {
 
 .contact-map {
   width: 100%;
-  height: 420px;          /* increased height */
+  height: 420px;          
   border: none;
-  border-radius: 10px;   /* optional, looks premium */
+  border-radius: 10px;  
+  display: block;
+  max-width: 100%; 
 }
 
 /* Mobile */
 @media (max-width: 768px) {
   .contact-map {
     height: 300px;
+  }
+
+  .contact-content .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .contact-content {
+    overflow-x: hidden;
+  }
+
+   iframe {
+    max-width: 100% !important;
   }
 }

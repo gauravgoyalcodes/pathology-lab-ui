@@ -3,14 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { BookingRequest } from '../models/booking.model';
 import { FetchBooking } from '../models/fetch-booking.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookingService {
 
-  private readonly BASE_URL = 'http://localhost:8080/pathology-lab';
-  // change later to env config
+  private readonly BASE_URL =  environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
 

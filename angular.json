@@ -27,7 +27,6 @@
               "src/assets/css/style.css",
               "src/assets/lib/animate/animate.css",
               "src/assets/lib/animate/animate.min.css",
-
               "src/styles.css"
             ],
             "scripts": [
@@ -44,6 +43,12 @@
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",

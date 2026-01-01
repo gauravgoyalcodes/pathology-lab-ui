@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Doctor } from '../models/doctor.model';
 import { AddDoctorPayload } from '../models/add-doctor.payload';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DoctorService {
 
-  private BASE_URL = 'http://localhost:8080/pathology-lab/doctors';
+  private BASE_URL = environment.apiBaseUrl +'/doctors';
 
   constructor(private http: HttpClient) {}
 

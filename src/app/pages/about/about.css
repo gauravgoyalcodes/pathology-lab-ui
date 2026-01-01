@@ -1,13 +1,18 @@
 /* HERO SECTION */
-.about-hero {  
-  background: linear-gradient(
-      rgba(53, 108, 180, 0.85),
-      rgba(0, 73, 132, 0.85)
-    ),         
+.about-hero {
+  overflow-x: hidden;
+  background: linear-gradient(rgba(53, 108, 180, 0.85),
+      rgba(0, 73, 132, 0.85)),
     url('/assets/img/aboutus.jpg') center / cover no-repeat;
 
   padding: 50px 0;
 }
+
+.about-hero .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 /* HERO TITLE */
 .about-hero-title {
   font-family: 'IBM Plex Sans', sans-serif;
@@ -36,7 +41,8 @@
 
   .about-hero-title {
     font-size: 1.7rem;
-  }}
+  }
+}
 
 
 /* GLOBAL ABOUT PAGE */
@@ -135,4 +141,14 @@
   .about-section-title {
     font-size: 1.6rem;
   }
+
+  .about-content .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .about-card {
+    width: 100%;
+  }
 }
+
