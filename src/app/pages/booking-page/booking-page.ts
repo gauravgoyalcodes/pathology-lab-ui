@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { finalize } from 'rxjs';
 import { ChangeDetectorRef } from '@angular/core';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import { Doctor } from '../../models/doctor.model';
 import { Test } from '../../models/test.model';
@@ -17,7 +18,7 @@ import { BookingService } from '../../services/booking.service';
 @Component({
   selector: 'app-booking-page',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, NgSelectModule],
   templateUrl: './booking-page.html',
   styleUrl: './booking-page.css'
 })

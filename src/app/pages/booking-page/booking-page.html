@@ -5,64 +5,79 @@
       <div class="col-lg-5 sticky-lg-top" style="top: 2rem;">
         <div class="booking-info p-4 rounded-4 bg-white shadow-sm">
           <h2 class="fw-bold mb-3 text-dark">Book an <span class="text-primary">Appointment</span></h2>
-          <p class="text-muted mb-4">Schedule your diagnostic tests with accuracy, care, and expert clinical support.</p>
+          <p class="text-muted mb-4">Schedule your diagnostic tests with accuracy, care, and expert clinical support.
+          </p>
 
           <ul class="booking-points list-unstyled">
-            <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Preventive & Health Monitoring</li>
-            <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Comprehensive Routine Diagnostics</li>
-            <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Advanced Cancer & Oncology Testing</li>
-            <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> International-Standard Technology</li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Preventive & Health Monitoring
+            </li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Comprehensive Routine Diagnostics
+            </li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Advanced Cancer & Oncology
+              Testing</li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> International-Standard Technology
+            </li>
           </ul>
 
           <div class="booking-hours mt-4 p-3 bg-light rounded-3 border-start border-primary border-4">
             <strong class="d-block mb-1">Working Hours</strong>
-            <span class="text-secondary">Mon – Sat: 9:00 AM – 9:00 PM</span>
+            <span class="text-secondary">Mon – Sat: 9:00 AM – 9:00 PM</span><br>
+            <span class="text-secondary">Sun: 9:00 AM – 3:00 PM</span>
           </div>
         </div>
       </div>
 
       <div class="col-lg-7">
-        
-        <form *ngIf="!submitted" class="booking-card p-4 p-md-5 rounded-4 bg-white shadow-lg" [formGroup]="bookingForm" (ngSubmit)="submit()" novalidate>
-          
+
+        <form *ngIf="!submitted" class="booking-card p-4 p-md-5 rounded-4 bg-white shadow-lg" [formGroup]="bookingForm"
+          (ngSubmit)="submit()" novalidate>
+
           <div class="form-section mb-5">
             <h5 class="fw-bold mb-4 text-primary border-bottom pb-2">Patient Details</h5>
             <div class="row g-3">
               <div class="col-md-3 col-4">
                 <label class="form-label fw-semibold">Title <span class="text-danger">*</span></label>
                 <select class="form-select border-0 bg-light" formControlName="salutation"
-                        [class.is-invalid]="bookingForm.get('salutation')?.invalid && bookingForm.get('salutation')?.touched">
+                  [class.is-invalid]="bookingForm.get('salutation')?.invalid && bookingForm.get('salutation')?.touched">
                   <option value="">Select</option>
-                  <option>Mr</option><option>Mrs</option><option>Ms</option><option>Dr</option>
+                  <option>Mr</option>
+                  <option>Mrs</option>
+                  <option>Ms</option>
+                  <option>Dr</option>
                 </select>
               </div>
               <div class="col-md-9 col-8">
                 <label class="form-label fw-semibold">Full Name <span class="text-danger">*</span></label>
-                <input type="text" class="form-control border-0 bg-light" placeholder="Patient full name" formControlName="name"
-                       [class.is-invalid]="bookingForm.get('name')?.invalid && bookingForm.get('name')?.touched" />
+                <input type="text" class="form-control border-0 bg-light" placeholder="Patient full name"
+                  formControlName="name"
+                  [class.is-invalid]="bookingForm.get('name')?.invalid && bookingForm.get('name')?.touched" />
               </div>
 
               <div class="col-md-3">
                 <label class="form-label fw-semibold">Sex <span class="text-danger">*</span></label>
                 <select class="form-select border-0 bg-light" formControlName="gender"
-                        [class.is-invalid]="bookingForm.get('gender')?.invalid && bookingForm.get('gender')?.touched">
+                  [class.is-invalid]="bookingForm.get('gender')?.invalid && bookingForm.get('gender')?.touched">
                   <option value="">Select</option>
-                  <option>Male</option><option>Female</option><option>Other</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Other</option>
                 </select>
               </div>
               <div class="col-md-3">
                 <label class="form-label fw-semibold">Age <span class="text-danger">*</span></label>
                 <input type="number" class="form-control border-0 bg-light" formControlName="age" placeholder="Age"
-                       [class.is-invalid]="bookingForm.get('age')?.invalid && bookingForm.get('age')?.touched" />
+                  [class.is-invalid]="bookingForm.get('age')?.invalid && bookingForm.get('age')?.touched" />
               </div>
               <div class="col-md-6">
                 <label class="form-label fw-semibold">Mobile Number <span class="text-danger">*</span></label>
-                <input type="tel" class="form-control border-0 bg-light" formControlName="phone" placeholder="10-digit mobile number"
-                       [class.is-invalid]="bookingForm.get('phone')?.invalid && bookingForm.get('phone')?.touched" />
+                <input type="tel" class="form-control border-0 bg-light" formControlName="phone"
+                  placeholder="10-digit mobile number"
+                  [class.is-invalid]="bookingForm.get('phone')?.invalid && bookingForm.get('phone')?.touched" />
               </div>
               <div class="col-12">
                 <label class="form-label fw-semibold text-muted">Email (optional)</label>
-                <input type="email" class="form-control border-0 bg-light" placeholder="Email address" formControlName="email" />
+                <input type="email" class="form-control border-0 bg-light" placeholder="Email address"
+                  formControlName="email" />
               </div>
             </div>
           </div>
@@ -72,53 +87,76 @@
             <div class="row g-3">
               <div class="col-md-7">
                 <label class="form-label fw-semibold">Consultant <span class="text-danger">*</span></label>
-                <select class="form-select border-0 bg-light" formControlName="doctor" [disabled]="loadingDoctors"
-                        [class.is-invalid]="bookingForm.get('doctor')?.invalid && bookingForm.get('doctor')?.touched">
-                  <option value="">Select Consultant</option>
-                  <option *ngFor="let d of doctors" [value]="d.doctorId">{{ d.salutation }} {{ d.doctorName }}</option>
-                </select>
+                <ng-select class="form-select bg-light border-0" formControlName="doctor" [items]="doctors"
+                  bindValue="doctorId" bindLabel="doctorName" placeholder="Select Consultant" [searchable]="true"
+                  [clearable]="false" [loading]="loadingDoctors" [ngClass]="{
+    'is-invalid':
+      bookingForm.get('doctor')?.invalid &&
+      bookingForm.get('doctor')?.touched
+  }">
+
+                  <ng-template ng-label-tmp let-item="item">
+                    {{ item.salutation }} {{ item.doctorName }}
+                  </ng-template>
+
+                  <ng-template ng-option-tmp let-item="item">
+                    {{ item.salutation }} {{ item.doctorName }}
+                  </ng-template>
+
+                </ng-select>
+
               </div>
               <div class="col-md-5">
                 <label class="form-label fw-semibold">Preferred Date <span class="text-danger">*</span></label>
-                <input type="date" class="form-control border-0 bg-light" formControlName="date" [min]="minDate" [max]="maxDate" (change)="onDateChange()"
-                       [class.is-invalid]="bookingForm.get('date')?.invalid && bookingForm.get('date')?.touched" />
+                <input type="date" class="form-control border-0 bg-light" formControlName="date" [min]="minDate"
+                  [max]="maxDate" (change)="onDateChange()"
+                  [class.is-invalid]="bookingForm.get('date')?.invalid && bookingForm.get('date')?.touched" />
               </div>
 
               <div class="col-12">
                 <label class="form-label fw-semibold mb-3">Select Time Slot <span class="text-danger">*</span></label>
                 <div class="row g-2">
                   <div class="col-6 col-md-4" *ngFor="let s of availableSlots">
-                    <div class="slot-card p-3 border rounded-3 text-center cursor-pointer" 
-                         [class.selected]="isSelected(s)" 
-                         [class.border-danger]="bookingForm.get('timeSlot')?.invalid && bookingForm.get('timeSlot')?.touched"
-                         (click)="selectSlot(s)">
+                    <div class="slot-card p-3 border rounded-3 text-center cursor-pointer"
+                      [class.selected]="isSelected(s)"
+                      [class.border-danger]="bookingForm.get('timeSlot')?.invalid && bookingForm.get('timeSlot')?.touched"
+                      (click)="selectSlot(s)">
                       <div class="fw-bold">{{ s.label }}</div>
                       <small class="text-muted">{{ s.capacity }} left</small>
                     </div>
                   </div>
                 </div>
-                <small class="text-danger mt-1 d-block" *ngIf="bookingForm.get('timeSlot')?.invalid && bookingForm.get('timeSlot')?.touched">Please select a time slot</small>
+                <small class="text-danger mt-1 d-block"
+                  *ngIf="bookingForm.get('timeSlot')?.invalid && bookingForm.get('timeSlot')?.touched">Please select a
+                  time slot</small>
               </div>
 
               <div class="col-md-8 mt-4">
                 <label class="form-label fw-semibold">Select Test <span class="text-danger">*</span></label>
-                <select class="form-select border-0 bg-light" formControlName="selectedTest" (change)="onTestSelect()"
-                        [class.is-invalid]="bookingForm.get('tests')?.value.length === 0 && bookingForm.get('selectedTest')?.touched">
-                  <option value="">Choose a test</option>
-                  <option *ngFor="let t of tests" [value]="t.testCode">{{ t.testName }}</option>
-                </select>
-                <small class="text-danger" *ngIf="bookingForm.get('tests')?.value.length === 0 && bookingForm.get('selectedTest')?.touched">Add at least one test</small>
+                <ng-select class="form-select bg-light border-0" formControlName="selectedTest" [items]="tests"
+                  bindValue="testCode" bindLabel="testName" placeholder="Choose a test" [searchable]="true"
+                  [clearable]="true" (change)="onTestSelect()" [ngClass]="{
+    'is-invalid':
+      bookingForm.get('tests')?.value.length === 0 &&
+      bookingForm.get('selectedTest')?.touched
+  }">
+                </ng-select>
+                <small class="text-danger"
+                  *ngIf="bookingForm.get('tests')?.value.length === 0 && bookingForm.get('selectedTest')?.touched">Add
+                  at least one test</small>
               </div>
 
               <div *ngIf="selectedTestDetails" class="col-12 mt-2">
-                <div class="p-3 rounded-3 bg-primary-light border border-primary-subtle d-flex justify-content-between align-items-center">
+                <div
+                  class="p-3 rounded-3 bg-primary-light border border-primary-subtle d-flex justify-content-between align-items-center">
                   <div>
                     <h6 class="mb-0 fw-bold">{{ selectedTestDetails.testName }}</h6>
                     <small class="text-muted">Report in {{ selectedTestDetails.normalTat }}</small>
                   </div>
                   <div class="text-end">
                     <div class="fw-bold text-primary mb-2">₹{{ selectedTestDetails.price }}</div>
-                    <button type="button" class="btn btn-primary btn-sm rounded-pill px-3" (click)="addTest()">Add Test</button>
+                    <button type="button" class="btn btn-primary btn-sm rounded-pill px-3" (click)="addTest()">Add
+                      Test</button>
                   </div>
                 </div>
               </div>
@@ -139,13 +177,15 @@
 
               <div class="col-12">
                 <label class="form-label fw-semibold text-muted">Clinical Notes (optional)</label>
-                <textarea rows="3" class="form-control border-0 bg-light" placeholder="Instructions..." formControlName="notes"></textarea>
+                <textarea rows="3" class="form-control border-0 bg-light" placeholder="Instructions..."
+                  formControlName="notes"></textarea>
               </div>
             </div>
           </div>
 
           <div class="mt-5 d-grid">
-            <button *ngIf="!submitting" type="submit" class="btn btn-primary btn-lg rounded-3 shadow-sm py-3" [disabled]="bookingForm.invalid">
+            <button *ngIf="!submitting" type="submit" class="btn btn-primary btn-lg rounded-3 shadow-sm py-3"
+              [disabled]="bookingForm.invalid">
               Complete Booking
             </button>
             <button *ngIf="submitting" class="btn btn-primary btn-lg rounded-3 py-3" type="button" disabled>
@@ -154,9 +194,10 @@
           </div>
         </form>
 
-        <div *ngIf="submitted" class="success-card p-5 text-center bg-white rounded-4 shadow-lg animate__animated animate__fadeIn">
+        <div *ngIf="submitted"
+          class="success-card p-5 text-center bg-white rounded-4 shadow-lg animate__animated animate__fadeIn">
           <div class="mb-4">
-             <i class="bi bi-patch-check-fill text-success" style="font-size: 4rem;"></i>
+            <i class="bi bi-patch-check-fill text-success" style="font-size: 4rem;"></i>
           </div>
           <h2 class="fw-bold mb-3">Booking Has Been Registered!</h2>
           <p class="text-muted">A WhatsApp confirmation has been sent to your mobile number.</p>
