@@ -10,12 +10,12 @@ import { environment } from '../../environments/environment';
 })
 export class BookingService {
 
-  private readonly BASE_URL =  environment.apiBaseUrl;
+  private BASE_URL = environment.apiBaseUrl
 
   constructor(private http: HttpClient) { }
 
   createBooking(payload: BookingRequest): Observable<any> {
-    return this.http.post('this.BASE_URL/register', payload);
+    return this.http.post(`${this.BASE_URL}/register`, payload);
   }
 
   getAllBookings() {

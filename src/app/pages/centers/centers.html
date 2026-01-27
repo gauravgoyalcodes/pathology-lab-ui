@@ -1,0 +1,88 @@
+<section class="center-hero">
+    <div class="center-hero-overlay"></div>
+
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-8">
+                <h1 class="center-hero-title">Our Centers</h1>
+                <p class="center-hero-subtitle">
+                    Overview of active pathology and diagnostic centers in the ecosystem.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="centers-page-wrapper">
+    <div class="container py-4 py-md-5">
+        <div class="management-wrapper">
+            
+            <div class="search-container-modern">
+                <div class="search-inner">
+                    <i class="bi bi-search search-lead-icon"></i>
+                    <input type="text" class="modern-input" placeholder="Search center, city or state..."
+                        [(ngModel)]="searchTerm" (input)="onSearch()" />
+                    
+                    <button *ngIf="searchTerm" class="modern-clear-circle" (click)="searchTerm=''; onSearch()">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="modern-grid">
+                <div class="center-card-v2" *ngFor="let center of filteredCenters">
+                    
+                    <div class="card-v2-header">
+                        <span class="id-badge">ID: {{ center.centerId }}</span>
+                        <div class="status-chip" [ngClass]="center.active ? 'is-active' : 'is-inactive'">
+                            <span class="status-dot"></span>
+                            {{ center.active ? 'Active' : 'Inactive' }}
+                        </div>
+                    </div>
+
+                    <div class="card-v2-body">
+                        <h3 class="center-title">{{ center.centerName }}</h3>
+                        
+                        <div class="info-layout">
+                            <div class="info-row-v2">
+                                <div class="icon-wrapper loc-bg">
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                </div>
+                                <div class="info-content">
+                                    <span class="info-label">Full Address</span>
+                                    <p class="info-main-text">{{ center.address }}</p>
+                                    <p class="info-sub-text">{{ center.city }}, {{ center.state }} - {{ center.pincode }}</p>
+                                </div>
+                            </div>
+
+                            <div class="info-row-v2">
+                                <div class="icon-wrapper phone-bg">
+                                    <i class="bi bi-telephone-fill"></i>
+                                </div>
+                                <div class="info-content">
+                                    <span class="info-label">Contact Number</span>
+                                    <p class="info-main-text">{{ center.phone }}</p>
+                                </div>
+                            </div>
+
+                            <div class="info-row-v2">
+                                <div class="icon-wrapper email-bg">
+                                    <i class="bi bi-envelope-at-fill"></i>
+                                </div>
+                                <div class="info-content">
+                                    <span class="info-label">Email Address</span>
+                                    <p class="info-main-text email-truncate">{{ center.email }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="no-results" *ngIf="filteredCenters.length === 0">
+                <i class="bi bi-building-exclamation"></i>
+                <p>No centers found matching your criteria.</p>
+            </div>
+        </div>
+    </div>
+</section>

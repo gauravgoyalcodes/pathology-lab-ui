@@ -1,0 +1,118 @@
+<div class="management-wrapper">
+    <div class="content-card">
+
+        <!-- Header -->
+        <div class="management-header">
+            <div class="header-main">
+                <div class="icon-badge">
+                    <i class="bi bi-hospital"></i>
+                </div>
+                <div>
+                    <h2 class="page-title">Centers Directory</h2>
+                    <p class="sub-text">
+                        Managing registered pathology and diagnostic centers in the network.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Search -->
+            <div class="search-box">
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Search by center, city or state..."
+                        [(ngModel)]="searchTerm" (input)="onSearch()" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Alerts -->
+        <div class="alert-container" *ngIf="success || error || filteredCenters.length === 0">
+            <div *ngIf="success" class="alert-custom alert-success">
+                <i class="bi bi-check-circle-fill"></i>
+                <strong>{{ success }}</strong>
+            </div>
+
+            <div *ngIf="error" class="alert-custom alert-danger">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                <strong>{{ error }}</strong>
+            </div>
+
+            <div *ngIf="!error && filteredCenters.length === 0" class="alert-custom alert-info">
+                <i class="bi bi-info-circle-fill"></i>
+                <strong>No centers found</strong>
+            </div>
+        </div>
+
+        <!-- Table -->
+        <div class="table-container">
+            <table class="clinical-table">
+                <thead>
+                    <tr>
+                        <th>Center ID</th>
+                        <th>Center Details</th>
+                        <th>Contact</th>
+                        <th>Location</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let center of filteredCenters">
+                        <!-- Center ID -->
+                        <td class="id-cell">#{{ center.centerId }}</td>
+
+                        <!-- Center Name -->
+                        <td class="name-cell">
+                            <div class="full-name">{{ center.centerName }}</div>
+                        </td>
+
+                        <!-- Contact Info -->
+                        <td class="contact-cell">
+                            <div class="contact-item">
+                                <i class="bi bi-telephone-fill"></i>
+                                {{ center.phone }}
+                            </div>
+                            <div class="contact-item">
+                                <i class="bi bi-envelope-fill"></i>
+                                {{ center.email }}
+                            </div>
+                        </td>
+
+                        <!-- Location -->
+                        <td class="spec-text">
+                            <div>
+                                {{center.address}}
+                            </div>
+                            <div>
+                                {{ center.state }}, {{ center.city }} – {{ center.pincode }}
+                            </div>
+                        </td>
+
+                        <!-- Status -->
+                        <td class="text-center">
+                            <span class="status-pill" [ngClass]="center.active ? 'active' : 'inactive'">
+                                {{ center.active ? 'Active' : 'Inactive' }}
+                            </span>
+                        </td>
+
+                        <!-- Actions -->
+                        <td class="action-cell">
+                            <div class="action-buttons">
+                                <button class="btn-edit" title="Edit Center">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </button>
+                                <button class="btn-delete" title="Deactivate Center">
+                                    <i class="bi bi-slash-circle-fill"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

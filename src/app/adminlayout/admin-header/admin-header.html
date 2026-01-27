@@ -43,12 +43,21 @@
       </div>
     </div>    
 
+    <!-- centers -->
+    <div class="nav-dropdown">
+      <span class="nav-link">Centers ▾</span>
+      <div class="dropdown-menu">
+        <a (click)="addCenters()">Add Centers</a>
+        <a (click)="manageCenters()">Manage Centers</a>
+      </div>
+    </div>
+
     <!-- Phlebo -->
     <div class="nav-dropdown">
       <span class="nav-link">Phlebotomist ▾</span>
       <div class="dropdown-menu">
-        <a routerLink="/admin/staff/phlebo/add">Add Phlebotomist</a>
-        <a routerLink="/admin/staff">Manage Phlebotomists</a>
+        <a (click)="addPhlebos()">Add Phlebotomist</a>
+        <a (click)="managePhlebos()">Manage Phlebotomists</a>
       </div>
     </div>
 

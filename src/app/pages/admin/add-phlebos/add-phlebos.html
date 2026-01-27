@@ -1,0 +1,88 @@
+<div class="registration-wrapper">
+  <div class="doctor-card">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar-accent">
+      <div class="glass-box">
+        <div class="icon-circle">
+          <i class="bi bi-person-badge-fill"></i>
+        </div>
+        <h3>Phlebo <br><span>Onboarding</span></h3>
+        <p>Register trained phlebotomists for diagnostic sample collection.</p>
+
+        <div class="feature-list">
+          <div class="feature-item"><i class="bi bi-check-circle"></i> Verified Staff</div>
+          <div class="feature-item"><i class="bi bi-geo-alt"></i> Center Assigned</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-content">
+
+      <!-- Alerts -->
+      <div class="alert-container" *ngIf="success || error">
+        <div *ngIf="success" class="alert-custom alert-success">
+          <i class="bi bi-check-circle-fill"></i> <strong>{{ success }}</strong>
+        </div>
+
+        <div *ngIf="error" class="alert-custom alert-danger">
+          <i class="bi bi-exclamation-triangle-fill"></i> <strong>{{ error }}</strong>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="form-header">
+        <span class="badge-status">Phlebo Management</span>
+        <h2>Staff Profile</h2>
+      </div>
+
+      <form [formGroup]="phleboForm" (ngSubmit)="submitPhlebo()">
+
+        <!-- Name -->
+        <div class="form-floating custom-floating">
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Full Name"
+            formControlName="name">
+          <label for="name">Full Name</label>
+        </div>
+
+        <!-- Phone -->
+        <div class="form-floating custom-floating mt-3">
+          <input
+            type="text"
+            class="form-control"
+            id="phone"
+            placeholder="Phone Number"
+            formControlName="phone">
+          <label for="phone">Mobile Number</label>
+        </div>
+
+        <!-- Center Dropdown -->
+        <div class="form-floating custom-floating mt-3">
+          <select class="form-select" id="branchName" formControlName="branchName">
+            <option value="" disabled selected>Select Diagnostic Center</option>
+            <option *ngFor="let center of centers" [value]="center.centerName">
+              {{ center.centerName }}
+            </option>
+          </select>
+          <label for="branchName">Assigned Center</label>
+        </div>
+
+        <!-- Submit -->
+        <div class="d-grid mt-4">
+          <button type="submit" class="submit-btn"
+            [disabled]="phleboForm.invalid || loading">
+            <span *ngIf="!loading">+ Register Phlebo</span>
+            <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

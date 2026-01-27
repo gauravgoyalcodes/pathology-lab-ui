@@ -1,0 +1,154 @@
+<div class="registration-wrapper">
+  <div class="centre-card">
+
+    <!-- Sidebar -->
+    <div class="sidebar-accent center-accent">
+      <div class="glass-box">
+        <div class="icon-circle">
+          <i class="bi bi-hospital-fill"></i>
+        </div>
+        <h3>Diagnostic <br><span>Center</span></h3>
+        <p>Register authorized pathology & diagnostic centers into the network.</p>
+
+        <div class="feature-list">
+          <div class="feature-item">
+            <i class="bi bi-patch-check"></i> NABL Ready
+          </div>
+          <div class="feature-item">
+            <i class="bi bi-shield-lock"></i> Secure Operations
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div class="form-content">
+
+      <div class="alert-container" *ngIf="success || error">
+        <div *ngIf="success" class="alert-custom alert-success">
+          <i class="bi bi-check-circle-fill"></i> <strong>{{ success }}</strong>
+        </div>
+
+        <div *ngIf="error" class="alert-custom alert-danger">
+          <i class="bi bi-exclamation-triangle-fill"></i> <strong>{{ error }}</strong>
+        </div>
+      </div>
+
+      <br />
+
+      <div class="form-header">
+        <span class="badge-status">Centers Management</span>
+        <h2>Center Profile</h2>
+      </div>
+
+      <form [formGroup]="centerForm" (ngSubmit)="submitCenter()">
+
+        <!-- Center Name -->
+        <div class="form-floating custom-floating">
+          <input
+            type="text"
+            class="form-control"
+            id="centerName"
+            placeholder="Center Name"
+            formControlName="centerName"
+          />
+          <label for="centerName">Diagnostic Center Name</label>
+        </div>
+
+        <!-- State & City -->
+        <div class="row g-3 mt-3">
+          <div class="col-md-6">
+            <div class="form-floating custom-floating">
+              <input
+                type="text"
+                class="form-control"
+                id="state"
+                placeholder="State"
+                formControlName="state"
+              />
+              <label for="state">State</label>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-floating custom-floating">
+              <input
+                type="text"
+                class="form-control"
+                id="city"
+                placeholder="City"
+                formControlName="city"
+              />
+              <label for="city">City</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pincode -->
+        <div class="form-floating custom-floating mt-3">
+          <input
+            type="text"
+            class="form-control"
+            id="pincode"
+            placeholder="Pincode"
+            formControlName="pincode"
+          />
+          <label for="pincode">Pincode</label>
+        </div>
+
+        <!-- Address -->
+        <div class="form-floating custom-floating mt-3">
+          <textarea
+            class="form-control"
+            id="address"
+            placeholder="Address"
+            formControlName="address"
+            style="height: 90px"
+          ></textarea>
+          <label for="address">Complete Address</label>
+        </div>
+
+        <!-- Phone & Email -->
+        <div class="row g-3 mt-3">
+          <div class="col-md-6">
+            <div class="form-floating custom-floating">
+              <input
+                type="text"
+                class="form-control"
+                id="phone"
+                placeholder="Phone"
+                formControlName="phone"
+              />
+              <label for="phone">Contact Number</label>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-floating custom-floating">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Email"
+                formControlName="email"
+              />
+              <label for="email">Official Email</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="d-grid mt-4">
+          <button
+            type="submit"
+            class="submit-btn"
+            [disabled]="centerForm.invalid || loading"
+          >
+            <span *ngIf="!loading">+ Add Center</span>
+            <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

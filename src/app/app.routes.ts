@@ -16,6 +16,12 @@ import { AddDoctor } from './pages/admin/add-doctors/add-doctors';
 import { ManageDoctors } from './pages/admin/manage-doctors/manage-doctors';
 import { AddTests } from './pages/admin/add-tests/add-tests';
 import { ManageTests } from './pages/admin/manage-tests/manage-tests';
+import { AddCenters } from './pages/admin/add-centers/add-centers';
+import { ManageCenters } from './pages/admin/manage-centers/manage-centers';
+import { Centers } from './pages/centers/centers';
+import { AddPhlebos } from './pages/admin/add-phlebos/add-phlebos';
+import { ManagePhlebos } from './pages/admin/manage-phlebos/manage-phlebos';
+import { Biochemistry } from './pages/departments/biochemistry/biochemistry';
 
 export const routes: Routes = [
 
@@ -31,7 +37,9 @@ export const routes: Routes = [
       { path: 'services', component: Services },
       { path: 'gallery', component: Gallery },
       { path: 'admin-login', component: AdminLogin },
-      { path: 'employee-login', component: EmployeeLogin }
+      { path: 'employee-login', component: EmployeeLogin },
+      { path: 'centers', component: Centers },
+      { path: 'department/:dept', component: Biochemistry}
     ]
   },
 
@@ -42,11 +50,15 @@ export const routes: Routes = [
     canActivate: [AdminAuthGuard],
     children: [
       { path: 'admin-dashboard', component: AdminDashboard },
-      { path: 'all-bookings', component: AllBookings  },
-      { path: 'add-doctors', component: AddDoctor  },
-      { path: 'manage-doctors', component: ManageDoctors},
-      { path: 'add-tests', component: AddTests},
-      { path: 'manage-tests', component: ManageTests}
+      { path: 'all-bookings', component: AllBookings },
+      { path: 'add-doctors', component: AddDoctor },
+      { path: 'manage-doctors', component: ManageDoctors },
+      { path: 'add-tests', component: AddTests },
+      { path: 'manage-tests', component: ManageTests },
+      { path: 'add-centers', component: AddCenters },
+      { path: 'manage-centers', component: ManageCenters },
+      { path: 'add-phlebos', component: AddPhlebos },
+      { path: 'manage-phlebos', component: ManagePhlebos }
     ]
   }
 

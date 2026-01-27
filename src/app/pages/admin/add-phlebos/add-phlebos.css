@@ -1,0 +1,115 @@
+/* Page Background with Dots */
+.registration-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background-color: #f0f4f8;
+  background-image: radial-gradient(#cbd5e0 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+
+.doctor-card {
+  display: flex;
+  width: 900px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* Sidebar Accent */
+.sidebar-accent {
+  width: 38%;
+  background: linear-gradient(135deg, #091e3b 0%, #bb93c9 100%);
+  padding: 40px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.glass-box {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.icon-circle {
+  width: 55px; height: 55px;
+  background: #045679;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; margin-bottom: 20px;
+}
+
+/* FORM FLOATING FIX (Resolves image issue) */
+.custom-floating > .form-control,
+.custom-floating > .form-select {
+  height: 65px;
+  padding-top: 1.625rem;
+  padding-bottom: 0.625rem;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+}
+
+.custom-floating > label {
+  padding: 1.1rem 0.75rem;
+  color: #64748b;
+}
+
+/* Fix for overlapping text when field is focused/filled */
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > .form-select ~ label {
+  opacity: .8;
+  transform: scale(.85) translateY(-0.7rem) translateX(0.15rem);
+  color: #021b26;
+  font-weight: bold;
+}
+
+/* Form Content */
+.form-content { width: 62%; padding: 50px; }
+.badge-status { 
+    background: #e0f2fe; color: #0369a1; 
+    font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 50px;
+}
+
+.compliance-note {
+  background: #f8fafc; padding: 12px; border-radius: 10px;
+  display: flex; gap: 10px; font-size: 12px; color: #64748b;
+  border: 1px solid #e2e8f0;
+}
+
+/* Button */
+.submit-btn {
+  background: #1a365d; color: white;
+  border: none; padding: 16px; border-radius: 12px;
+  font-weight: 600; transition: all 0.3s;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: #38bdf8; transform: translateY(-2px);
+  box-shadow: 0 10px 15px rgba(56, 189, 248, 0.3);
+}
+
+.submit-btn:disabled { background: #cbd5e1; cursor: not-allowed; }
+
+.alert-container { padding: 20px 40px 0; }
+
+.alert-custom {
+  padding: 15px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  border-left: 6px solid;
+}
+
+.alert-success { background: #f0fdf4; color: #166534; border-color: #22c55e; }
+.alert-info { background: #f0f9ff; color: #0369a1; border-color: #0ea5e9; }
+.alert-danger { background: #fef2f2; color: #991b1b; border-color: #ef4444; }

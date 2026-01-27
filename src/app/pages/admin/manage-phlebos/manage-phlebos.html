@@ -1,0 +1,92 @@
+<div class="management-wrapper">
+    <div class="content-card">
+
+        <!-- HEADER -->
+        <div class="management-header">
+            <div class="header-main">
+                <div class="icon-badge">
+                    <i class="bi bi-person-badge-fill"></i>
+                </div>
+                <div>
+                    <h2 class="page-title">Phlebo Directory</h2>
+                    <p class="sub-text">
+                        Managing trained phlebotomists and their assigned diagnostic centers.
+                    </p>
+                </div>
+            </div>
+
+            <!-- SEARCH -->
+            <div class="search-box">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control" placeholder="Search by name, phone or center..."
+                        [(ngModel)]="searchTerm" (input)="onSearch()">
+                </div>
+            </div>
+        </div>
+
+        <!-- ALERTS -->
+        <div class="alert-container" *ngIf="success || error || phlebos.length === 0">
+            <div *ngIf="success" class="alert-custom alert-success">
+                <i class="bi bi-check-circle-fill"></i> <strong>{{ success }}</strong>
+            </div>
+
+            <div *ngIf="error" class="alert-custom alert-danger">
+                <i class="bi bi-exclamation-triangle-fill"></i> <strong>{{ error }}</strong>
+            </div>
+
+            <div *ngIf="!error && phlebos.length === 0" class="alert-custom alert-info">
+                <i class="bi bi-info-circle-fill"></i> No phlebos found
+            </div>
+        </div>
+
+        <!-- TABLE -->
+        <div class="table-container">
+            <table class="clinical-table">
+                <thead>
+                    <tr>
+                        <th>Phlebo ID</th>
+                        <th>Full Name</th>
+                        <th>Mobile</th>
+                        <th>Assigned Center</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let phlebo of filteredPhlebos">
+                        <td class="id-cell">#{{ phlebo.id }}</td>
+
+                        <td class="name-cell">
+                            <span class="full-name">{{ phlebo.name }}</span>
+                        </td>
+
+                        <td>{{ phlebo.phone }}</td>
+
+                        <td>{{ phlebo.branchId }}</td>
+
+                        <td class="text-center">
+                            <span class="status-pill" [class.active]="phlebo.status === true"
+                                [class.inactive]="phlebo.status === false">
+                                {{ phlebo.status }}
+                            </span>
+                        </td>
+
+                        <td class="action-cell">
+                            <div class="action-buttons">
+                                <button class="btn-edit" title="Edit Phlebo">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </button>
+                                <button class="btn-delete" title="Delete Phlebo">
+                                    <i class="bi bi-trash3-fill"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

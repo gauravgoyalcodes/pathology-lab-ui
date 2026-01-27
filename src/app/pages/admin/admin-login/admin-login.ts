@@ -62,10 +62,9 @@ export class AdminLogin implements OnInit {
 
   this.auth.login({ username, password }).subscribe({
     next: (res) => {
-      // 1. Stop loading immediately on success
       this.loading = false;
       this.auth.saveAuthData(res);
-      this.router.navigate(['/admin/admin-dashboard']);
+      this.router.navigateByUrl('/admin/admin-dashboard');
     },
     error: (err) => {
       // 2. Stop loading immediately on error

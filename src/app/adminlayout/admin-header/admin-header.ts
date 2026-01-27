@@ -46,6 +46,22 @@ export class AdminHeader {
     this.router.navigateByUrl("admin/manage-tests")
   }
 
+  addCenters() {
+    this.router.navigateByUrl("admin/add-centers")
+  }
+
+  manageCenters() {
+    this.router.navigateByUrl("admin/manage-centers")
+  }
+
+  addPhlebos() {
+    this.router.navigateByUrl("admin/add-phlebos")
+  }
+
+  managePhlebos() {
+    this.router.navigateByUrl("admin/manage-phlebos")
+  }
+
   logout() {
     this.authService.logout();
     this.router.navigateByUrl('/');

@@ -9,4 +9,7 @@ import { RouterModule } from '@angular/router';
 })
 export class Footer {
 
+  scrollTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
