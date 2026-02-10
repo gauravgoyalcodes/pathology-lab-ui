@@ -162,6 +162,16 @@ export class BookingPage implements OnInit {
     return `${max} hours`;
   }
 
+  removeTest(testCode: string) {
+    const current = this.bookingForm.value.tests as string[];
+
+    const updated = current.filter(code => code !== testCode);
+
+    this.bookingForm.patchValue({
+      tests: updated
+    });
+  }
+
   // ------------------------
   // SUBMIT (FINAL & CLEAN)
   // ------------------------
@@ -222,18 +232,18 @@ export class BookingPage implements OnInit {
   }
 
   // Add this method to handle a clean reset
-resetForm() {
-  this.submitted = false;
-  this.submitting = false;
-  this.bookingForm.reset({
-    salutation: '',
-    gender: '',
-    doctor: '',
-    tests: [], // Reset the array specifically
-    selectedTest: ''
-  });
-  this.availableSlots = [];
-  this.selectedTestDetails = undefined;
-  this.cdr.detectChanges();
-}
+  resetForm() {
+    this.submitted = false;
+    this.submitting = false;
+    this.bookingForm.reset({
+      salutation: '',
+      gender: '',
+      doctor: '',
+      tests: [], // Reset the array specifically
+      selectedTest: ''
+    });
+    this.availableSlots = [];
+    this.selectedTestDetails = undefined;
+    this.cdr.detectChanges();
+  }
 }
