@@ -1,0 +1,40 @@
+<section class="modern-carousel">
+    <div class="nav right" (click)="move(1)">›</div>
+
+    <div class="track" [style.transform]="'translateX(-'+index*100+'%)'">
+
+        <div class="slide" *ngFor="let p of profiles" [ngClass]="p.bg">
+
+            <div class="content">
+
+                <small>{{ p.tag }}</small>
+
+                <h1>{{ p.name }}</h1>
+
+                <p>{{ p.desc }}</p>
+
+                <div class="tests">
+                    <span *ngFor="let t of p.tests">{{ t }}</span>
+                </div>
+
+                <!-- NEW GUIDANCE LINE -->
+                <p class="profile-hint">
+                    After clicking Book, please select
+                    <strong>{{ p.name }}</strong>
+                    from the test dropdown on the booking page.
+                </p>
+
+                <button (click)="book(p.name)">
+                    Book {{ p.tag }}
+                </button>
+
+            </div>
+
+            <img class="illustration" [src]="p.image" />
+
+        </div>
+
+
+    </div>
+
+</section>

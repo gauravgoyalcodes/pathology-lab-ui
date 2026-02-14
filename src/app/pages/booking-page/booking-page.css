@@ -141,9 +141,14 @@
   border-color: #dc3545 !important;
 }
 
-.booking-bg,
+/* .booking-bg,
 .booking-bg .container,
 .booking-bg .row {
+  max-width: 100%;
+  overflow-x: hidden;
+} */
+
+.booking-bg {
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -200,3 +205,11 @@ textarea {
   max-width: 100%;
 }
 
+ng-select {
+  position: relative;
+  z-index: 20;
+}
+
+.ng-dropdown-panel {
+  z-index: 9999 !important;
+}

@@ -21,7 +21,7 @@ import { ManageCenters } from './pages/admin/manage-centers/manage-centers';
 import { Centers } from './pages/centers/centers';
 import { AddPhlebos } from './pages/admin/add-phlebos/add-phlebos';
 import { ManagePhlebos } from './pages/admin/manage-phlebos/manage-phlebos';
-import { Biochemistry } from './pages/departments/biochemistry/biochemistry';
+import { OurServices } from './pages/our-services/our-services';
 
 export const routes: Routes = [
 
@@ -39,7 +39,7 @@ export const routes: Routes = [
       { path: 'admin-login', component: AdminLogin },
       { path: 'employee-login', component: EmployeeLogin },
       { path: 'centers', component: Centers },
-      { path: 'department/:dept', component: Biochemistry}
+      { path: 'our-services', component: OurServices }
     ]
   },
 
